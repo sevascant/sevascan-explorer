@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevascan Explorer (DEX Launch)</title>
+    <style>
+        body { font-family: monospace; background: #0d1117; color: #c9d1d9; padding: 20px; }
+        .container { max-width: 800px; margin: auto; border: 1px solid #30363d; padding: 20px; border-radius: 6px; }
+        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .badge { background: #9e6a00; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold; }
+        .stat-card { background: #161b22; padding: 15px; border-radius: 6px; border: 1px solid #30363d; margin: 15px 0; }
+        .download-box { background: #1f242c; border-left: 4px solid #58a6ff; padding: 15px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 SEVASCAN BLOCKCHAIN EXPLORER</h1>
+        <div class="stat-card">
+            <h3>Altura de la Red: <span id="block-height">Cargando...</span></h3>
+            <p>Estado: <span class="badge">ESPERANDO BLOQUE 1 (FAIR LAUNCH)</span></p>
+        </div>
+        <div class="download-box">
+            <h3>🚀 Descarga de la APK de Android (Método DEX Anónimo)</h3>
+            <p>Copia el siguiente CID en tu navegador P2P (Brave/IPFS) para obtener la aplicación:</p>
+            <code style="color: #ff79c6; display:block; padding:10px; background:#0d1117; border:1px solid #30363d;">
+                ipfs://[HASH_CID_DE_TU_APK]
+            </code>
+        </div>
+    </div>
+    <script>
+        async function checkNode() {
+            try {
+                const res = await fetch('/api/status');
+                const data = await res.json();
+                document.getElementById('block-height').innerText = `Bloque ${data.blocks || 0}`;
+            } catch {
+                document.getElementById('block-height').innerText = "Nodo enlazando...";
+            }
+        }
+        checkNode();
+        setInterval(checkNode, 5000);
+    </script>
+</body>
+</html>
