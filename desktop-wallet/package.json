@@ -1,0 +1,52 @@
+{
+  "name": "sevascan-desktop",
+  "version": "1.0.0",
+  "description": "Sevascan (SEV) Suite Todo-en-Uno: Billetera, Nodo Tor, Minero CPU y Exchange P2P",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-linux": "electron-builder --linux AppImage tar.gz",
+    "build-win": "electron-builder --win portable zip"
+  },
+  "build": {
+    "appId": "org.sevascan.desktop",
+    "productName": "Sevascan",
+    "icon": "assets/logo.png",
+    "extraResources": [
+      {
+        "from": "bin/${os}",
+        "to": "bin/windows"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "zip"
+      ],
+      "icon": "assets/logo.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ],
+      "icon": "assets/logo.png",
+      "category": "Finance"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "assets/logo.png"
+    }
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socks-proxy-agent": "^7.0.0"
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1"
+  }
+}
