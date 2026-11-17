@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 
 const app = express();
+app.use((req,res,next)=>{res.header("Access-Control-Allow-Origin","*");res.header("Access-Control-Allow-Headers","Content-Type");if(req.method==="OPTIONS")return res.sendStatus(200);next();});
 app.use(express.json());
 
 const RPC_CONFIG = { host: 'localhost', port: 18081, user: 'sevascanuser', pass: 'sevascanpassword' };
@@ -9,22 +10,6 @@ let miningActive = false;
 let miningAddress = '';
 let blocksFoundSession = 0;
 let walletReady = false;
-
-const SEED_HTTP_FALLBACKS = [
-  "http://192.168.1.36:3000",
-  "http://192.168.56.101:3000"
-];
-
-async function queryLightMode(endpoint) {
-  for (const base of SEED_HTTP_FALLBACKS) {
-    try {
-      const r = await fetch(base + endpoint, { signal: AbortSignal.timeout(3000) });
-      if (r.ok) return await r.json();
-    } catch (_) {}
-  }
-  return null;
-}
-
 
 function callRpc(method, params = []) {
   return new Promise((resolve, reject) => {
@@ -149,5 +134,4 @@ app.get('/api/node/bloques', async (req, res) => {
   } catch (e) { res.json({ status: 'error', blocks: [] }); }
 });
 
-app.get("/api/mobile/sync", async (req,res)=>{try{const r=await fetch("http://127.0.0");const d=await r.json();res.json({status:d.online?"ok":"connecting",blocks:d.blocks||0,peers:Math.max(1,d.tor_peers||1),difficulty:d.difficulty||1,bestblockhash:d.bestblockhash||""});}catch(e){res.json({status:"connecting"});}});
-app.listen(18400, '0.0.0.0', () => console.log('Bridge 18400'));
+app.listen(18400, 'localhost', () => console.log('Sevascan Node Bridge activo en localhost:18400'));

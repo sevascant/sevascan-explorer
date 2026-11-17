@@ -64,4 +64,34 @@ window.addEventListener("DOMContentLoaded",()=>{
   }
 });
 
-</script></body></html>
+</script></html><script>
+(function(){
+  var s = localStorage.getItem("sev_mine_addr");
+  if (s) {
+    if (typeof mineAddr !== "undefined") mineAddr = s;
+    var ma = document.getElementById("myAddress"); if (ma) ma.innerText = s;
+    var mt = document.getElementById("mineTargetAddr"); if (mt) mt.innerText = "Target (Saved): " + s;
+  }
+  async function checkNode() {
+    try {
+      const r = await fetch("http://localhost:18400/api/node/estado");
+      const j = await r.json();
+      const nb = document.getElementById("netBadge");
+      if (j && j.online && nb) {
+        nb.innerText = "Tor Node Online (" + (j.tor_peers || 0) + " peers)";
+        nb.classList.add("online");
+        if (document.getElementById("balAvail")) document.getElementById("balAvail").innerText = Number(j.balance || 0).toFixed(8) + " SEV";
+        if (document.getElementById("blkHeight")) document.getElementById("blkHeight").innerText = "#" + (j.blocks || 0);
+        if (document.getElementById("expHeight")) document.getElementById("expHeight").innerText = "#" + (j.blocks || 0);
+        if (document.getElementById("netDiff")) document.getElementById("netDiff").innerText = Number(j.difficulty || 0).toFixed(6);
+        if (document.getElementById("netPeers")) document.getElementById("netPeers").innerText = j.tor_peers || 0;
+        if (!localStorage.getItem("sev_mine_addr") && j.wallet_address && document.getElementById("myAddress")) {
+          document.getElementById("myAddress").innerText = j.wallet_address;
+        }
+      }
+    } catch (e) {}
+  }
+  setInterval(checkNode, 3000);
+  checkNode();
+})();
+</script></body>
