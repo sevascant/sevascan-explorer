@@ -39,14 +39,15 @@ async function addCustomCoin(){
 
 function saveColdWalletUsb(){if(!cold)return;const b=new Blob([document.getElementById("coldPreview").innerText],{type:"text/plain"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="Sevascan_MASTER_SEED_USB_"+cold.sevA.slice(0,8)+".txt";a.click();document.getElementById("coldMsg").innerText="Saved! Store this file safely on your USB drive.";}
 async function useColdForMining(){
-  if(!cold){document.getElementById("coldMsg").innerText="Load or generate 12 words first.";return;}
+  if(!cold){document.getElementById("coldMsg").innerText="Load or generate your 12 words first.";return;}
   const rot=document.getElementById("chkRotate")&&document.getElementById("chkRotate").checked;
   const idx=rot?rotIndex:0;
   const d=await deriveSevIndex(cold.mnemonic,idx);
-  mineAddr=d.addr;localStorage.setItem("sev_mine_addr",mineAddr);localStorage.setItem("sev_mine_addr",mineAddr);
+  mineAddr=d.addr;
+  localStorage.setItem("sev_mine_addr",mineAddr);
   const ma=document.getElementById("myAddress");if(ma)ma.innerText=mineAddr;
-  const mt=document.getElementById("mineTargetAddr");if(mt)mt.innerText="Target (USB HD #"+idx+"): "+mineAddr;
-  document.getElementById("coldMsg").innerText="Linked HD #"+idx+" ("+mineAddr+")";
+  const mt=document.getElementById("mineTargetAddr");if(mt)mt.innerText="Target (Cold Wallet HD #"+idx+"): "+mineAddr;
+  document.getElementById("coldMsg").innerText="Linked Cold Wallet HD #"+idx+": "+mineAddr;
 }
 async function newAddress(){if(cold){await rotateIfEnabled();alert("Rotated to HD Address #"+rotIndex+": "+mineAddr);}else alert("Generate or restore your 12-Word Seed in Cold Wallet (USB).");}
 async function sendSev(){const d=document.getElementById("sendTo").value.trim(),c=document.getElementById("sendAmt").value;if(!d||!c)return;const j=await fetchNode("/api/node/enviar",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({destino:d,cantidad:c})});document.getElementById("sendMsg").innerText=j.txid?"Sent! TXID: "+j.txid:(j.error||"Error");if(j.txid)await rotateIfEnabled();}
