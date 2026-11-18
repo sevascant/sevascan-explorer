@@ -5,7 +5,7 @@ const app = express();
 app.use((req,res,next)=>{res.header("Access-Control-Allow-Origin","*");res.header("Access-Control-Allow-Headers","Content-Type");if(req.method==="OPTIONS")return res.sendStatus(200);next();});
 app.use(express.json());
 
-const RPC_CONFIG = { host: 'localhost', port: 18081, user: 'sevascanuser', pass: 'sevascanpassword' };
+const RPC_CONFIG = { host: '0.0.0.0', port: 18081, user: 'sevascanuser', pass: 'sevascanpassword' };
 let miningActive = false;
 let miningAddress = '';
 let blocksFoundSession = 0;
@@ -134,4 +134,4 @@ app.get('/api/node/bloques', async (req, res) => {
   } catch (e) { res.json({ status: 'error', blocks: [] }); }
 });
 
-app.listen(18400, 'localhost', () => console.log('Sevascan Node Bridge activo en localhost:18400'));
+app.listen(18400, '0.0.0.0', () => console.log('Sevascan Node Bridge activo en localhost:18400'));
