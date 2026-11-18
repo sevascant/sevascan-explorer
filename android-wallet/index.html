@@ -97,7 +97,13 @@ window.addEventListener("DOMContentLoaded",()=>{
   checkNode();
 })();
 </script><script>
-window.getNodeBase = function(){ return localStorage.getItem("sev_node_url") || "http://127.0.0.1:18400"; };
+
+window.SEV_NODES = JSON.parse(localStorage.getItem("sev_known_nodes") || "null") || ["http://vd7wkaqosftxjkp7kcndw6kgmvdprudcavl3xhac22lo6lni2unff4yd.onion"];
+if (!window.SEV_NODES.includes("http://vd7wkaqosftxjkp7kcndw6kgmvdprudcavl3xhac22lo6lni2unff4yd.onion")) window.SEV_NODES.unshift("http://vd7wkaqosftxjkp7kcndw6kgmvdprudcavl3xhac22lo6lni2unff4yd.onion");
+window.SEV_IDX = 0;
+window.getNodeBase = function(){ var c = localStorage.getItem("sev_node_url"); return c ? c : window.SEV_NODES[window.SEV_IDX % window.SEV_NODES.length]; };
+window.rotateNode = function(){ window.SEV_IDX++; };
+
 window.saveNodeUrl = function(){ var v = document.getElementById("nodeUrlInput").value.trim().replace(/\/$/,""); if(v){ localStorage.setItem("sev_node_url", v); alert("Node URL saved: " + v); } };
 (function(){ var inp = document.getElementById("nodeUrlInput"); if(inp) inp.value = window.getNodeBase(); })();
 setInterval(async function(){
@@ -122,7 +128,7 @@ setInterval(async function(){
         return "<tr><td>#" + b.height + (b.height===0?" (Genesis)":"") + "</td><td class=\"mono\">" + b.hash + "</td><td>" + b.txCount + "</td><td>" + b.reward + " SEV</td></tr>";
       }).join("");
     }
-  } catch (e) { var nb = document.getElementById("netBadge"); if(nb){ nb.innerText = "Cold Wallet Ready (Offline)"; nb.classList.add("online"); } }
+  } catch (e) { if(window.rotateNode) window.rotateNode(); var nb = document.getElementById("netBadge"); if(nb){ nb.innerText = "Cold Wallet Ready (Offline)"; nb.classList.add("online"); } }
 }, 3500);
 window.toggleMine = async function(a){
   try {
