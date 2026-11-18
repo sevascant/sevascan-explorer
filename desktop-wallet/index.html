@@ -72,7 +72,8 @@ window.addEventListener("DOMContentLoaded",()=>{
     var ma = document.getElementById("myAddress"); if (ma) ma.innerText = s;
     var mt = document.getElementById("mineTargetAddr"); if (mt) mt.innerText = "Target (Saved): " + s;
   }
-  async function checkNode() {
+  window.fetchNode = async function(u, o) { try { const r = await fetch("http://localhost:18400" + u, o || {}); return await r.json(); } catch (e) { return { error: e.message }; } };
+    async function checkNode() {
     try {
       const r = await fetch("http://localhost:18400/api/node/estado");
       const j = await r.json();
