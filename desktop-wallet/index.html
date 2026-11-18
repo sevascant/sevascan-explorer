@@ -72,8 +72,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     var ma = document.getElementById("myAddress"); if (ma) ma.innerText = s;
     var mt = document.getElementById("mineTargetAddr"); if (mt) mt.innerText = "Target (Saved): " + s;
   }
-  window.fetchNode = async function(u, o) { try { const r = await fetch("http://localhost:18400" + u, o || {}); return await r.json(); } catch (e) { return { error: e.message }; } };
-    async function checkNode() {
+  async function checkNode() {
     try {
       const r = await fetch("http://localhost:18400/api/node/estado");
       const j = await r.json();
@@ -97,4 +96,4 @@ window.addEventListener("DOMContentLoaded",()=>{
   setInterval(checkNode, 3000);
   checkNode();
 })();
-</script></body>
+</script><script>setInterval(async function(){try{const r=await fetch("http://localhost:18400/api/node/bloques");const j=await r.json();const tb=document.getElementById("blocksTable");if(tb&&j&&Array.isArray(j.blocks)&&j.blocks.length>0){tb.innerHTML=j.blocks.map(function(b){return "<tr><td>#"+b.height+(b.height===0?" (Genesis)":"")+"</td><td class=\"mono\">"+b.hash+"</td><td>"+b.txCount+"</td><td>"+b.reward+" SEV</td></tr>";}).join("");}}catch(e){}},4000);</script></body>
