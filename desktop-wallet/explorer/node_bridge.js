@@ -48,7 +48,7 @@ async function miningLoop() {
   while (miningActive) {
     try {
       await ensureWallet();
-      if (!miningAddress) miningAddress = await callRpc('getnewaddress', ['mineria_cpu']);
+      if (!miningAddress || !miningAddress.startsWith('sev1')) miningAddress = await callRpc('getnewaddress', ['mineria_cpu']);
       const hashes = await callRpc('generatetoaddress', [1, miningAddress, 100000]);
       if (Array.isArray(hashes) && hashes.length > 0) blocksFoundSession += hashes.length;
     } catch (_) { await new Promise(r => setTimeout(r, 2000)); }
