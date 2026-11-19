@@ -4,10 +4,10 @@
 
 ---
 
-## Downloads (Release v1.0.0)
+## Downloads (Release v1.0.1)
 Go to the **[Releases Page](https://github.com)** to download the ready-to-run binaries:
 * **Windows (x64 Node + GUI + CPU Miner):** `Sevascan-Windows.zip`
-* **Android (Offline Cold Wallet + Node Viewer):** `Sevascan-v1.0.0.apk`
+* **Android (Offline Cold Wallet + Node Viewer):** `Sevascan-v1.0.1.apk`
 
 ---
 
@@ -22,6 +22,6 @@ Go to the **[Releases Page](https://github.com)** to download the ready-to-run b
 ---
 
 ## Quick Start — Android (Mobile Cold Wallet & LAN Node Viewer)
-1. **Install 1. **Install:** Download and install `Sevascan-v1.0.0.apk` on your Android device. Tor Setup:** Download and install `Sevascan-v1.0.0.apk`. To connect live to the `.onion` network over 4G/5G/Wi-Fi, install and start the free **Orbot** app (Tor for Android) before opening Sevascan.
+1. **Install 1. **Install:** Download and install `Sevascan-v1.0.1.apk` on your Android device. Tor Setup:** Download and install `Sevascan-v1.0.1.apk`. To connect live to the `.onion` network over 4G/5G/Wi-Fi, install and start the free **Orbot** app (Tor for Android) before opening Sevascan.
 2. **Offline Cold Wallet (Works Anywhere — 4G/5G/Wi-Fi):** Open **Cold Wallet (USB)** to generate or restore your 12-word Master Seed offline and copy your receiving `SEV` address.
 3. **Optional Link to Your PC Node (Same Wi-Fi):** In the **Wallet** tab, enter your PC node bridge URL (e.g. `http://192.168.1.X:18400`) under **Remote / Tor Node Bridge URL** and tap **Save Node URL** to monitor live blocks and balance from your phone.
