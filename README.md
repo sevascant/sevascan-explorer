@@ -13,7 +13,7 @@ Visit the **[Releases](https://github.com/sevascant/sevascan-explorer/releases)*
 | Platform | File | Included Features |
 | :--- | :--- | :--- |
 | **Windows (64-bit)** | `Sevascan-Windows-v1.0.3.zip` | **Full Node**, **CPU Miner (`250 SEV/block`)**, Cold Wallet (12-word `sev1q...`), Tor Explorer & P2P DEX. Includes synced chain snapshot (`#3473+`), live Pending balance & anti-fork P2P mesh. |
-| **Linux (64-bit)** | `Sevascan-Linux-v1.0.2.tar.gz` | **Full Node**, **CPU Miner (`250 SEV/block`)**, Cold Wallet (12-word `sev1q...`), Tor Explorer & P2P DEX. Run `./Sevascan.sh`. |
+| **Linux (64-bit)** | `Sevascan-Linux-v1.0.3.tar.gz` | **Full Node**, **CPU Miner (`250 SEV/block`)**, Cold Wallet (12-word `sev1q...`), Tor Explorer & P2P DEX. Run `./Sevascan.sh`. |
 | **Android (APK)** | `Sevascan-v1.0.1.apk` | **Light Mobile Wallet** (requires **Orbot** active), Cold Wallet (12-word `sev1q...`), live Tor Explorer & P2P DEX. *(Does not mine on mobile to protect battery life).* |
 | **Apple (iOS / macOS)** | `Sevascan-Apple-iOS-macOS-PWA-v1.0.1.zip` | **Progressive Web App (PWA)** for Safari on iPhone, iPad & Mac (use **Onion Browser** / Tor on iOS + *"Add to Home Screen"*). Supports 12-word `sev1q...` Cold Wallet, live Explorer & P2P DEX. *(No mining on iOS).* |
 
@@ -27,7 +27,7 @@ Visit the **[Releases](https://github.com/sevascant/sevascan-explorer/releases)*
 3. Extract **`Sevascan-Windows-v1.0.3.zip`** and launch **`Sevascan.exe`** to connect straight onto the canonical chain (`#3473+`).
 
 ### 2. New Users — Windows & Linux (Full Node + CPU Mining)
-1. Download **`Sevascan-Windows-v1.0.3.zip`** or **`Sevascan-Linux-v1.0.2.tar.gz`** from [Releases](https://github.com/sevascant/sevascan-explorer/releases) and extract it.
+1. Download **`Sevascan-Windows-v1.0.3.zip`** or **`Sevascan-Linux-v1.0.3.tar.gz`** from [Releases](https://github.com/sevascant/sevascan-explorer/releases) and extract it.
 2. Launch **`Sevascan.exe`** (Windows) or **`./Sevascan.sh`** (Linux).
 3. Go to **Cold Wallet (USB)** to generate or restore your **12-Word Master Seed** (native Bech32 `sev1q...` address) and back it up safely.
 4. Go to **CPU Miner** and click **Start CPU Mining** to mine **250 SEV** blocks (requires at least 3 active peers on the network).
