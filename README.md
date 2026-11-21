@@ -14,16 +14,16 @@
 
 ---
 
-## Quick Start (`v1.0.4` — 100% Automatic Setup)
+## Quick Start (`v1.0.5` — 100% Automatic Setup)
 
-1. **Download the latest release (`v1.0.4`)** from the [Releases page](https://github.com):
-   * **Windows:** `Sevascan-Windows-v1.0.4.zip`
-   * **Linux:** `Sevascan-Linux-v1.0.4.tar.gz`
+1. **Download the latest release (`v1.0.5`)** from the [Releases page](https://github.com):
+   * **Windows:** `Sevascan-Windows-v1.0.5.zip`
+   * **Linux:** `Sevascan-Linux-v1.0.5.tar.gz`
 2. **Extract and launch:**
    * **Windows:** Extract the ZIP anywhere and double-click **`Sevascan.exe`**.
-   * **Linux:** Extract (`tar -xzf Sevascan-Linux-v1.0.4.tar.gz`) and launch the app binary.
+   * **Linux:** Extract (`tar -xzf Sevascan-Linux-v1.0.5.tar.gz`) and launch the app binary.
 3. **Automatic Sync & Self-Healing:**
-   * No manual configuration or folder cleanup is required—**`v1.0.4` automatically initializes the verified chain snapshot (`#4086+`)**, starts the embedded Tor daemon, connects to the `.onion` seed nodes, and syncs to the latest block in seconds.
+   * No manual configuration or folder cleanup is required—**`v1.0.5` automatically initializes the verified chain snapshot (`#4086+`)**, starts the embedded Tor daemon, connects to the `.onion` seed nodes, and syncs to the latest block in seconds.
 4. **Create Your Cold Wallet & Mine:**
    * Open **Cold Wallet (USB)** → click **Generate 12-Word Master Seed** (or restore your 12 words), save your backup, and click **Use SEV Address for Mining**.
    * Open **CPU Miner** and click **Start CPU Mining**.
