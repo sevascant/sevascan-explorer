@@ -1,4 +1,4 @@
-# Sevascan (SEV) — Tor-Native CPU-Only Blockchain & Desktop Wallet (`v1.0.4`)
+# Sevascan (SEV) — Tor-Native CPU-Only Blockchain & Desktop Wallet (`v1.0.5`)
 
 **Sevascan (SEV)** is a decentralized, peer-to-peer proof-of-work cryptocurrency built for **100% fair CPU mining** (`SHA3-256`, zero ASICs) and **native Tor (`.onion`) privacy** with zero exposed IP addresses.
 
