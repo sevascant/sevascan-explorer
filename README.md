@@ -45,4 +45,6 @@ Sevascan (SEV) is a decentralized, peer-to-peer proof-of-work cryptocurrency bui
 giqz6hmnnjbu2errnc6u73bm3jnxkd6lvorpuozwdkif367mnhq3hbqd.onion:18080
 andzaivjwh3fnmrji6haltmw5qplosgbhbt2jpxcbosjifk4mxtvdkqd.onion:18080
 rf5x4fmtu5blrafw6665km7nlpvio4fqxg6j3wkezjhyucqdnin4nkad.onion:18080
+3rno5skgcjss7tkv2gg42ncf64cz3eplmple7uwivmafl4xmueahwaqd.onion:18080
+
 ```
